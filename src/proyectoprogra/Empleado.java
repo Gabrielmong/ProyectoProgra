@@ -1,7 +1,5 @@
 package proyectoprogra;
 
-import javax.swing.JOptionPane;
-
 public class Empleado {
     private String nombreEmpleado;
     protected int cedula;
@@ -67,7 +65,5 @@ public class Empleado {
 
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
-    }
-    
-    
+    }   
 }
