@@ -1,0 +1,32 @@
+package proyectoprogra;
+
+import javax.swing.JOptionPane;
+
+public class main {
+
+    public static void main(String[] args) {
+        int opt = 8;
+        todo t = new todo();
+        while (opt != 9) {
+
+            opt = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Agregar Empleados   2. Mostrar Empleados \n"
+                    + "3. Editar Empleados        9.salir"));
+
+            switch (opt) {
+                case 1:
+                    t.agregarEmpleado();
+                    break;
+                case 2:
+                    t.mostarEmpleados();
+                    break;
+                case 3:
+                    t.modificarEmpleado();
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+}
