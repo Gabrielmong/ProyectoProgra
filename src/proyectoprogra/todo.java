@@ -141,7 +141,7 @@ public class todo {
                 int opc2 = 8;
                 while (opc != 0) {
                     opc = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Nombre\n2. Cédula\n3. Correo\n"
-                            + "4. Numero de Telefono\n5. ID\n6. Año de entrada"
+                            + "4. Numero de Telefono\n5. ID\n6. Año de entrada\n"
                             + "7. Detalles de Empleado"));
                     switch (opc) {
                         case 1:
