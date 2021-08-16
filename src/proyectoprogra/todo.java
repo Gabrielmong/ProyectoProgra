@@ -353,6 +353,48 @@ public class todo {
                     + arr[x].m.getCantidadVentas() + " Ventas" + " " + arr[x].s.getTotal() + "\n";
         }
         e = e + "\n";
-        JOptionPane.showMessageDialog(null, "Info: \n" + e);
+        JOptionPane.showMessageDialog(null, "Info General: \n" + e);
+        int opt3=0;
+
+        String nombre = JOptionPane.showInputDialog(null, "Digite el nombre del empleado que desea buscar: ");
+        x = 0;
+        int y = 0;
+        while (y == 0) {
+            if (nombre.equals(arr[x].t.getNombreEmpleado())) {
+                int opc = 8;
+                while (opc != 0) {
+                    opc = Integer.parseInt(JOptionPane.showInputDialog(null, "Ver:\n1.Capacitacion  2.Horario \n" + "3. Departamento  4.Métricas\n"
+                    + "5.Amonestaciones        6.Salario \n" + "7.Vacaciones      0. Salir"));
+                    switch (opc) {
+                        case 1:
+                            JOptionPane.showMessageDialog(null, arr[x].c.getFecha()+" "+arr[x].c.getHora()+" "+arr[x].c.getLugar()+" "+arr[x].c.getTipoCap());
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, arr[x].h.getHoraEntrada()+" "+arr[x].h.getHoraSalida()+" "+arr[x].h.getTipoHorario());
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, arr[x].d.getArea()+" "+arr[x].d.getProyecto()+" "+arr[x].d.getPuesto()+" "+arr[x].d.getResponsabilidades());
+                            break;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, arr[x].m.getCantidadVentas()+" "+arr[x].m.getEmpleadosAtentidos()+" "+arr[x].m.getAtrasos());
+                            break;
+                        case 5:
+                            JOptionPane.showMessageDialog(null, arr[x].a.getFalta()+" "+arr[x].a.getGravedad()+" "+arr[x].a.getReincidencia()+" "+arr[x].a.getReprimienda());
+                            break;
+                        case 6:
+                            JOptionPane.showMessageDialog(null, arr[x].s.getTotal()+" Salario neto");
+                            break;
+                        case 7:
+                            JOptionPane.showMessageDialog(null, arr[x].v.getDiasDisponibles());
+                            break;
+                        default:
+                            break;
+                    }
+                    y++;
+                }
+            } else {
+                x++;
+            }
+        }
     }
 }
