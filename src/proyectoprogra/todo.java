@@ -81,20 +81,20 @@ public class todo {
         s.setSalarioHora(Double.parseDouble(JOptionPane.showInputDialog(null, "Salario por hora")));
         s.setBonos(Double.parseDouble(JOptionPane.showInputDialog(null, "Bonos")));
 
-        //Suponiendo que trabaja en un horario de 8 horas al dia
-        if (s.getHorasTrabajadas() <= 8) { //Si trabaja 8 o menos horas se le paga normal 
+        // Suponiendo que trabaja en un horario de 8 horas al dia
+        if (s.getHorasTrabajadas() <= 8) { // Si trabaja 8 o menos horas se le paga normal
             pago = s.getSalarioHora() * s.getHorasTrabajadas();
-            //Bonos
+            // Bonos
             total = pago + s.getBonos();
             JOptionPane.showMessageDialog(null, "El salario del empleado es de: " + total);
 
-        } else if (s.getHorasTrabajadas() > 8) { //Si trabaja mas de 8 horas quiere decir que hizo horas extras
-            hora = s.getHorasTrabajadas() - 8; //Se restan para saber cuantas horas extras trabajo
+        } else if (s.getHorasTrabajadas() > 8) { // Si trabaja mas de 8 horas quiere decir que hizo horas extras
+            hora = s.getHorasTrabajadas() - 8; // Se restan para saber cuantas horas extras trabajo
             salario = s.getSalarioHora() * 8; // Para sacar el salario base
             // Para sacar el salario con las horas extras que realizo el empleado.
             extra = s.getSalarioHora() * hora;
             pago = salario + extra;
-            //Bonos
+            // Bonos
             total = pago + s.getBonos();
             s.setTotal(total);
             JOptionPane.showMessageDialog(null, "El salario bruto del empleado es de: " + total);
@@ -141,11 +141,11 @@ public class todo {
                 int opc2 = 8;
                 while (opc != 0) {
                     opc = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Nombre\n2. Cédula\n3. Correo\n"
-                            + "4. Numero de Telefono\n5. ID\n6. Año de entrada\n"
-                            + "7. Detalles de Empleado"));
+                            + "4. Numero de Telefono\n5. ID\n6. Año de entrada\n" + "7. Detalles de Empleado\n0. Atrás"));
                     switch (opc) {
                         case 1:
-                            arr[x].t.setNombreEmpleado(JOptionPane.showInputDialog(null, "Ingrese el nombre nuevo del empleado"));
+                            arr[x].t.setNombreEmpleado(
+                                    JOptionPane.showInputDialog(null, "Ingrese el nombre nuevo del empleado"));
                             break;
                         case 2:
                             arr[x].t.setCedula(Integer.parseInt(JOptionPane.showInputDialog(null, "Número de cedula")));
@@ -154,21 +154,26 @@ public class todo {
                             arr[x].t.setCorreoEmpleado(JOptionPane.showInputDialog(null, "Correo Electrónico"));
                             break;
                         case 4:
-                            arr[x].t.setTelefono(Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de telefono")));
+                            arr[x].t.setTelefono(
+                                    Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de telefono")));
                             break;
                         case 5:
-                            arr[x].t.setIdEmpleado(Integer.parseInt(JOptionPane.showInputDialog(null, "ID del empleado")));
+                            arr[x].t.setIdEmpleado(
+                                    Integer.parseInt(JOptionPane.showInputDialog(null, "ID del empleado")));
                             break;
                         case 6:
-                            arr[x].t.setAntiguedad(Integer.parseInt(JOptionPane.showInputDialog(null, "Año en que entró a trabajar")));
+                            arr[x].t.setAntiguedad(
+                                    Integer.parseInt(JOptionPane.showInputDialog(null, "Año en que entró a trabajar")));
                             break;
                         case 7:
                             while (opc2 != 0) {
-                                opc2 = Integer.parseInt(JOptionPane.showInputDialog(null, "1. Capacitaciones\n2. Amonestaciones\n3. Departamento\n"
-                                        + "4. Horarios\n5. Metricas\n 6. Vacaciones\n7. Salarios"));
+                                opc2 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "1. Capacitaciones\n2. Amonestaciones\n3. Departamento\n"
+                                                + "4. Horarios\n5. Metricas\n 6. Vacaciones\n7. Salarios\n0. Atrás"));
                                 switch (opc2) {
                                     case 1:
-                                        arr[x].c.setLugar(JOptionPane.showInputDialog(null, "Lugar de la capacitación"));
+                                        arr[x].c.setLugar(
+                                                JOptionPane.showInputDialog(null, "Lugar de la capacitación"));
                                         arr[x].c.setFecha(JOptionPane.showInputDialog(null, "Fecha"));
                                         arr[x].c.setHora(JOptionPane.showInputDialog(null, "Hora"));
                                         arr[x].c.setTipoCap(JOptionPane.showInputDialog(null, "Detalles"));
@@ -178,7 +183,8 @@ public class todo {
                                         String rep;
                                         contador++;
                                         arr[x].a.setFalta(JOptionPane.showInputDialog(null, "Detalles de fala"));
-                                        arr[x].a.setGravedad(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la gravedad")));
+                                        arr[x].a.setGravedad(Integer
+                                                .parseInt(JOptionPane.showInputDialog(null, "Ingrese la gravedad")));
                                         arr[x].a.setReincidencia(contador);
                                         if (contador == 1) {
                                             rep = "Advertencia 1";
@@ -188,7 +194,8 @@ public class todo {
                                             rep = "Reprimienda";
                                         }
                                         if (rep.equals("Reprimienda")) {
-                                            arr[x].a.setReprimienda(JOptionPane.showInputDialog(null, "La reprimienda será"));
+                                            arr[x].a.setReprimienda(
+                                                    JOptionPane.showInputDialog(null, "La reprimienda será"));
                                         } else {
                                             arr[x].a.setReprimienda("");
                                         }
@@ -196,50 +203,65 @@ public class todo {
                                     case 3:
                                         arr[x].d.setPuesto(JOptionPane.showInputDialog(null, "Puesto del empleado"));
                                         arr[x].d.setArea(JOptionPane.showInputDialog(null, "Area de trabajo"));
-                                        arr[x].d.setResponsabilidades(JOptionPane.showInputDialog(null, "Responsabilidades"));
-                                        arr[x].d.setProyecto(JOptionPane.showInputDialog(null, "Proyecto en progreso:"));
+                                        arr[x].d.setResponsabilidades(
+                                                JOptionPane.showInputDialog(null, "Responsabilidades"));
+                                        arr[x].d.setProyecto(
+                                                JOptionPane.showInputDialog(null, "Proyecto en progreso:"));
                                         break;
                                     case 4:
-                                        arr[x].c.setLugar(JOptionPane.showInputDialog(null, "Lugar de la capacitación"));
+                                        arr[x].c.setLugar(
+                                                JOptionPane.showInputDialog(null, "Lugar de la capacitación"));
                                         arr[x].c.setFecha(JOptionPane.showInputDialog(null, "Fecha"));
                                         arr[x].c.setHora(JOptionPane.showInputDialog(null, "Hora"));
                                         arr[x].c.setTipoCap(JOptionPane.showInputDialog(null, "Detalles"));
                                         break;
                                     case 5:
                                         arr[x].m.setMetas(JOptionPane.showInputDialog(null, "Metas activas"));
-                                        arr[x].m.setCantidadVentas(Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de ventas")));
-                                        arr[x].m.setEmpleadosAtentidos(Integer.parseInt(JOptionPane.showInputDialog("Numero de clientes atendidos")));
+                                        arr[x].m.setCantidadVentas(Integer
+                                                .parseInt(JOptionPane.showInputDialog(null, "Numero de ventas")));
+                                        arr[x].m.setEmpleadosAtentidos(Integer
+                                                .parseInt(JOptionPane.showInputDialog("Numero de clientes atendidos")));
                                         arr[x].m.setAtrasos(JOptionPane.showInputDialog(null, "Atrasos"));
                                         break;
                                     case 6:
-                                        arr[x].v.setDiasDisponibles(Integer.parseInt(JOptionPane.showInputDialog(null, "Dias de vacaciones")));
+                                        arr[x].v.setDiasDisponibles(Integer
+                                                .parseInt(JOptionPane.showInputDialog(null, "Dias de vacaciones")));
                                         arr[x].v.setFechaEntrada(JOptionPane.showInputDialog(null, "Fecha de entrada"));
                                         arr[x].v.setFechaSalida(JOptionPane.showInputDialog(null, "Fecha de salida"));
                                         break;
                                     case 7:
-                                        Double pago,extra,hora,salario,total,total2, total3;
+                                        Double pago, extra, hora, salario, total, total2, total3;
 
-                                        arr[x].s.setHorasTrabajadas(Double.parseDouble(JOptionPane.showInputDialog(null, "Horas Trabajadas")));
-                                        arr[x].s.setSalarioHora(Double.parseDouble(JOptionPane.showInputDialog(null, "Salario por hora")));
-                                        arr[x].s.setBonos(Double.parseDouble(JOptionPane.showInputDialog(null, "Bonos")));
+                                        arr[x].s.setHorasTrabajadas(Double
+                                                .parseDouble(JOptionPane.showInputDialog(null, "Horas Trabajadas")));
+                                        arr[x].s.setSalarioHora(Double
+                                                .parseDouble(JOptionPane.showInputDialog(null, "Salario por hora")));
+                                        arr[x].s.setBonos(
+                                                Double.parseDouble(JOptionPane.showInputDialog(null, "Bonos")));
 
-                                        //Suponiendo que trabaja en un horario de 8 horas al dia
-                                        if (arr[x].s.getHorasTrabajadas() <= 8) { //Si trabaja 8 o menos horas se le paga normal 
+                                        // Suponiendo que trabaja en un horario de 8 horas al dia
+                                        if (arr[x].s.getHorasTrabajadas() <= 8) { // Si trabaja 8 o menos horas se le
+                                                                                  // paga normal
                                             pago = arr[x].s.getSalarioHora() * arr[x].s.getHorasTrabajadas();
-                                            //Bonos
+                                            // Bonos
                                             total = pago + arr[x].s.getBonos();
-                                            JOptionPane.showMessageDialog(null, "El salario del empleado es de: " + total);
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El salario del empleado es de: " + total);
 
-                                        } else if (arr[x].s.getHorasTrabajadas() > 8) { //Si trabaja mas de 8 horas quiere decir que hizo horas extras
-                                            hora = arr[x].s.getHorasTrabajadas() - 8; //Se restan para saber cuantas horas extras trabajo
+                                        } else if (arr[x].s.getHorasTrabajadas() > 8) { // Si trabaja mas de 8 horas
+                                                                                        // quiere decir que hizo horas
+                                                                                        // extras
+                                            hora = arr[x].s.getHorasTrabajadas() - 8; // Se restan para saber cuantas
+                                                                                      // horas extras trabajo
                                             salario = arr[x].s.getSalarioHora() * 8; // Para sacar el salario base
                                             // Para sacar el salario con las horas extras que realizo el empleado.
                                             extra = arr[x].s.getSalarioHora() * hora;
                                             pago = salario + extra;
-                                            //Bonos
+                                            // Bonos
                                             total = pago + arr[x].s.getBonos();
                                             s.setTotal(total);
-                                            JOptionPane.showMessageDialog(null, "El salario bruto del empleado es de: " + total);
+                                            JOptionPane.showMessageDialog(null,
+                                                    "El salario bruto del empleado es de: " + total);
                                             if (total < 842000) {
                                                 JOptionPane.showMessageDialog(null, "El salario neto sería " + total);
                                             } else if (total > 842000 && total < 1236000) {
@@ -289,10 +311,9 @@ public class todo {
             }
             opt = 8;
             while (opt != 0) {
-                opt = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar Capacitacion  2.Definir Horario \n"
-                        + "3.Definir Departamento  4.Métricas\n"
-                        + "5.Amonestaciones        6.Definir Salario \n"
-                        + "7.Vacaciones"));
+                opt = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "1.Agregar Capacitacion  2.Definir Horario \n" + "3.Definir Departamento  4.Métricas\n"
+                                + "5.Amonestaciones        6.Definir Salario \n" + "7.Vacaciones      0. Salir"));
                 switch (opt) {
                     case 1:
                         t.agregarCapacitacion();
