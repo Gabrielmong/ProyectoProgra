@@ -91,7 +91,7 @@ public class todo {
         } else if (s.getHorasTrabajadas() > 8) { // Si trabaja mas de 8 horas quiere decir que hizo horas extras
             hora = s.getHorasTrabajadas() - 8; // Se restan para saber cuantas horas extras trabajo
             salario = s.getSalarioHora() * 8; // Para sacar el salario base
-            // Para sacar el salario con las horas extras que realizo el empleado.
+            // Para sacar el salario con las horas extras que realizo el empleado
             extra = s.getSalarioHora() * hora;
             pago = salario + extra;
             // Bonos
